@@ -12,7 +12,7 @@ export const GlobaalCss = createGlobalStyle`
     list-style: none;
 }
     body {
-    background-color:rgb(46, 46, 46) ;
+    background-color:rgb(59, 59, 59) ;
 
 }
 `

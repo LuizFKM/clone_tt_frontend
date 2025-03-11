@@ -2,17 +2,15 @@ import { Form, FormContainer, RegisterLink } from "./styles"
 const LoginForm = () => (
     <>
         <FormContainer>
-            <h2>
-                Login
-            </h2>
+            <h2>Login</h2>
             <Form>
-                <label htmlFor="email"></label>
+                <label htmlFor="email">email</label>
                 <input type="text" name="email" />
-                <label htmlFor="password"></label>
+                <label htmlFor="password">senha</label>
                 <input type="password" name="password" />
                 <button type="submit">Entrar</button>
             </Form>
-            <RegisterLink>Não possui conta? <span>registre-se</span></RegisterLink>
+            <RegisterLink to={"/register"}>Não possui conta? <span>registre-se</span></RegisterLink>
         </FormContainer>
     </>
 )
