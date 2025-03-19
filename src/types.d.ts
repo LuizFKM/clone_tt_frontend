@@ -1,7 +1,7 @@
 declare type User = {
-    name: string
-    userName: string
-    email: string
-    password: string | number
     id?: number
+    email: string
+    username: string
+    name?: string
+    password?: string | number
 }
