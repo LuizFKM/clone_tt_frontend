@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useLoginUserMutation } from '../../services/api'
 import { Form, FormContainer, RegisterLink } from "./styles"
+import { useDispatch } from 'react-redux'
+import { login } from '../../store/reducers/user'
 
 
 
@@ -8,6 +10,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginUser, { isLoading, isError }] = useLoginUserMutation()
+    const dispatch = useDispatch()
 
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -15,7 +18,7 @@ const LoginForm = () => {
         try {
             const response = await loginUser({ email, password }).unwrap();
             localStorage.setItem('acessToken', response.access)
-
+            dispatch(login({ user: response.user, token: response.access }))
             alert('Login bem-sucedido!');
         } catch (error) {
             console.error('Erro no login:', error);
